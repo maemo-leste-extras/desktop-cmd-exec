@@ -1,0 +1,110 @@
+desktop-cmd-exec (1.10) unstable; urgency=low
+
+  * Disabled auto-capitalization, thanks to qwerty12
+  * delay picker now has "Disabled" as sugested by thp
+  * disabled cmd execution on boot
+  * disabled editing on cmd title for enhanced secutiry/robust
+  * added timeout in wget standard commands
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Wed, 26 Mar 2010 18:13:10 -0300
+
+desktop-cmd-exec (1.01) unstable; urgency=low
+
+  * Fixed bug on saving settings at line 1026 (misfit "else")
+  * Known bug: effective 'click area' is on top of the labels
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Wed, 24 Feb 2010 01:13:10 +0100
+
+desktop-cmd-exec (1.0) unstable; urgency=low
+
+  * Fixed bug that executed cmd even when it was "network unrelated".
+  * Better explanation (and handling) of network related events
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Wed, 24 Feb 2010 12:10:10 +0100
+
+desktop-cmd-exec (0.9) unstable; urgency=low
+
+  * Checkbox for "Display Title"
+  * Handling multiple commands with same title correctly
+  * Standard width is 0.4 instead of ugly 1.0
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Fri, 12 Feb 2010 16:26:10 +0100
+
+desktop-cmd-exec (0.8) unstable; urgency=low
+
+  * Uptime fixed
+  * lots of newer preloaded commands (remove ~/.desktop_cmd_exec to see them)
+  * alignment fixed
+  * Help label advising the use of many widgets
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Tue, 2 Feb 2010 12:56:10 +0100
+
+desktop-cmd-exec (0.7) unstable; urgency=low
+
+  * Multiple lines (thanks to No!No!No!Yes!)
+  * correct line height so that multiple lines params make sense
+  * Explanatory labels for sizes
+  * new uptime preloaded script (thanks to liedekef)
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Thu, 28 Jan 2010 02:18:10 +0100
+
+desktop-cmd-exec (0.6) unstable; urgency=low
+
+  * Multiple widget instances
+  * multiple groups in key file, one for each widget instance
+  * versioning for the g_keyfile_.. file (.desktop_cmd_exec)
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Thu, 25 Jan 2010 00:10:10 +0100
+
+
+desktop-cmd-exec (0.5) unstable; urgency=low
+
+  * Multiple widget instances.. resets everything 
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Thu, 23 Jan 2010 18:40:10 +0100
+
+desktop-cmd-exec (0.4) unstable; urgency=low
+
+  * User defined widget width
+  * fixed some of the preloaded commands with cmds from community (topic at talk)
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Thu, 22 Jan 2010 1:00:10 +0100
+
+desktop-cmd-exec (0.3) unstable; urgency=low
+
+  * Added network relevance for cmd update
+  * Pannable area for the settings dialog
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Thu, 7 Jan 2010 5:21:10 +0100
+
+desktop-cmd-exec (0.2) unstable; urgency=low
+
+  * Remake of the settings dialogs
+  * Add/Edit/Delete commands option
+  * timeout refresh
+  * width
+  * solved onDesktop bug
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Mon, 4 Jan 2010 23:30:10 +0100
+
+desktop-cmd-exec (0.1-2) unstable; urgency=low
+
+  * Added multiple commands (selection) support
+  * Custom command input dialog..
+  * general stuff
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Sat, 3 Jan 2010 19:21:20 +0100
+
+desktop-cmd-exec (0.1-1) unstable; urgency=low
+
+  * Removed CONIC references from configure.ac (may be re-added
+    in the future for "onConnection" trigger for cmds)
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Sat, 2 Jan 2010 21:20:09 +0100
+
+desktop-cmd-exec (0.1) unstable; urgency=low
+
+  * Initial mockup
+  * packaging and structure done
+
+ -- Clovis Peruchi Scotti <scotti@ieee.org>  Sat, 2 Jan 2010 20:20:09 +0100

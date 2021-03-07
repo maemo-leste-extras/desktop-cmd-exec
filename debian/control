@@ -1,0 +1,89 @@
+Source: desktop-cmd-exec
+Priority: extra
+Maintainer: Clovis Peruchi Scotti <scotti@ieee.org>
+Build-Depends: debhelper (>= 5), libhildondesktop1-dev, libgtk2.0-dev, libconic0-dev
+Standards-Version: 3.7.2
+Section: user/desktop
+
+Package: desktop-cmd-exec
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Results of custom commands in your desktop.
+ Presents the updated result of a custom shell command
+ in your desktop. Very useful if used with lshal, awk, wget.
+XB-Maemo-Display-Name: Desktop Command Execution Widget
+XSBC-Bugtracker: mailto:scotti@ieee.org
+XB-Maemo-Icon-26:
+ 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
+ TkSuQmCC
+

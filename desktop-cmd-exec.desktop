@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Desktop Command Execution Widget
+Comment=Results of custom commands in your desktop.
+Type=default
+X-Multiple=true
+X-Path=desktop-cmd-exec.so
