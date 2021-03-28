@@ -31,5 +31,10 @@ EXTRA_DIST =					\
 	debian/install				\
         desktop-cmd-exec.desktop
 
+install-data-hook:
+	@(cd $(DESTDIR)$(libhhdir) && $(RM) $(libhh_LTLIBRARIES))
+
 deb:
 	./make-package $(PACKAGE) $(VERSION)
+
+ACLOCAL_AMFLAGS = -I m4

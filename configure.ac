@@ -1,9 +1,12 @@
-AC_INIT(Makefile.am)
-AM_INIT_AUTOMAKE(desktop-cmd-exec, 0.1)
+AC_INIT([desktop-cmd-exec], [0.1])
+AM_INIT_AUTOMAKE([foreign])
+
+LT_INIT([shared disable-static])
 
 AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
+AC_CONFIG_MACRO_DIRS([m4])
 
 PKG_CHECK_MODULES(GTK, gtk+-2.0)
 AC_SUBST(GTK_LIBS)
