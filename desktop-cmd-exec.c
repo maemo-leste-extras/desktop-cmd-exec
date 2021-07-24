@@ -370,17 +370,13 @@ void desktop_cmd_exec_write_settings (DesktopCmdExec *self, gboolean newAll, gbo
 //  		g_warning("records empty, filling with pre-loaded vals");
 		//records empty, filling with pre-loaded vals
 		self->priv->c_size = 9;
-		gchar * p_titles[] = { "Uptime:", "Battery(%):", "Battery(mAh):", "Boot Reason:", "Boot Count:", "External IP:", "Internal IP:", "Rootfs(%):", "Free Rootfs:", NULL};
+		gchar * p_titles[] = { "Uptime:", "External IP:", "Internal IP:", "Rootfs(%):", "Free Rootfs:", NULL};
 		gchar * p_commands[] = {
 		"uptime|cut -d\" \" -f4-|sed 's/\\, *load.*//'",
-		"hal-device bme | awk -F\"[. ]\" '$5 == \"is_charging\" {chrg = $7}; $5 == \"percentage\" {perc = $7} END if (chrg == \"false\") {print perc \"%\"} else {print \"Chrg\"}'",
-		"hal-device bme | grep battery.reporting | awk -F. '{print $3}' | sort | awk '$1 == \"current\" { current = $3}; $1== \"design\" {print current \"/\" $3}'",
-		"cat /proc/bootreason",
-		"cat /var/lib/dsme/boot_count",
-		"wget --timeout=10 -q -O - api.myiptest.com | awk -F \"\\\"\" '{print $4}'",
-		"/sbin/ifconfig | grep \"inet addr\" | awk -F: '{print $2}' | awk '{print $1}'",
-		"df | awk '$1 == \"rootfs\" {print $5}'",
-		"df -h | awk ' $1 == \"rootfs\" {print $4\"B\"}'", NULL};
+		"wget -qO- ifconfig.co",
+		"/sbin/ifconfig | grep \"broadcast\" | awk '{print $2}'",
+		"df / | tail -n1 | awk '{print $5}'",
+		"df -h / | tail -n1 | awk '{print $4\"B\"}'", NULL};
 
 		//clean possible oldies
 		g_strfreev(self->priv->c_titles);
