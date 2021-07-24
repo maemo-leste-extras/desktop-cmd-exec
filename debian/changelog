@@ -1,3 +1,10 @@
+desktop-cmd-exec (1.20) unstable; urgency=low
+
+  * Differentiate between commands without output and failed commands
+  * Update default commands and remove Fremantle-specific ones
+
+ -- Sicelo A. Mhlongo <absicsz@gmail.com>  Sat, 27 Jul 2021 17:24:09 +0200
+
 desktop-cmd-exec (1.10) unstable; urgency=low
 
   * Disabled auto-capitalization, thanks to qwerty12

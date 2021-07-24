@@ -1,4 +1,4 @@
-AC_INIT([desktop-cmd-exec], [0.1])
+AC_INIT([desktop-cmd-exec], [1.20])
 AM_INIT_AUTOMAKE([foreign])
 
 LT_INIT([shared disable-static])
