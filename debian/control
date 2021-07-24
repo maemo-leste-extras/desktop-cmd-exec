@@ -1,6 +1,6 @@
 Source: desktop-cmd-exec
 Priority: extra
-Maintainer: Clovis Peruchi Scotti <scotti@ieee.org>
+Maintainer: Sicelo A. Mhlongo <absicsz@gmail.com>
 Build-Depends: debhelper (>= 12), libhildondesktop1-dev, libgtk2.0-dev, libconic0-dev, libdbus-glib-1-dev
 Standards-Version: 3.7.2
 Section: user/desktop
@@ -12,7 +12,7 @@ Description: Results of custom commands in your desktop.
  Presents the updated result of a custom shell command
  in your desktop. Very useful if used with lshal, awk, wget.
 XB-Maemo-Display-Name: Desktop Command Execution Widget
-XSBC-Bugtracker: mailto:scotti@ieee.org
+XSBC-Bugtracker: https://github.com/maemo-leste-extras/desktop-cmd-exec/issues
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c
  6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0
