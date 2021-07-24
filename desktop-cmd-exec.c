@@ -616,6 +616,7 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 	gchar line[2048];
 	size_t l;//AP
 	gchar *result;
+	size_t exval;
 	
 	gboolean found = FALSE;
 	
@@ -643,10 +644,13 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 			gtk_label_set_text (GTK_LABEL (self->priv->cmdResult_lb), line);//AP
 			found = TRUE;
 		}
-		pclose (fp);
+		exval = pclose (fp);
 
-		if (!found) {
+		if (exval) {
 			gtk_label_set_text (GTK_LABEL (self->priv->cmdResult_lb), "Invalid Command");
+		}
+		else if (!found) {
+			gtk_label_set_text (GTK_LABEL (self->priv->cmdResult_lb), "Success - no output");
 		}
 	}
 	else
