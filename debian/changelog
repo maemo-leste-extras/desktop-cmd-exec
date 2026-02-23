@@ -1,3 +1,9 @@
+desktop-cmd-exec (1.21) unstable; urgency=low
+
+  * fixing compilation error for Excalibur
+
+ -- Arno1103 <arno11-n900@outlook.com>  Mon, 23 Feb 2026 16:27:56 +0100
+
 desktop-cmd-exec (1.20) unstable; urgency=low
 
   * Differentiate between commands without output and failed commands
