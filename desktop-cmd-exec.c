@@ -603,7 +603,7 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 	if(self->priv->widgetID == NULL)
 	{
 		g_warning("Widget instance unknown... aborting");
-		return;
+		return TRUE;
 	}
 
 	if(self->priv->updNeworkPolicy == NETWORK__ONLY_CONNECTED && self->priv->isConnected == FALSE)
