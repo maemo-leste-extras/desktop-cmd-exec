@@ -92,7 +92,7 @@ struct _DesktopCmdExecPrivate
 	//global data
 		gchar ** c_titles;
 		gchar ** c_commands;
-		guint c_size;
+		gsize c_size;
 
 	//instance data
 		gboolean updOnClick;
@@ -175,7 +175,7 @@ void desktop_cmd_exec_read_settings ( DesktopCmdExec *self )
 				error = NULL;
 			}
 
-			guint consistencyCheck = -1;
+			gsize consistencyCheck = -1;
 			g_strfreev(self->priv->c_titles);
 			self->priv->c_titles = g_key_file_get_string_list (keyFile, "config", "c_titles", &consistencyCheck ,&error);
 			if (error) {
@@ -362,8 +362,9 @@ void desktop_cmd_exec_write_settings (DesktopCmdExec *self, gboolean newAll, gbo
 	filename = g_strconcat (HOME_DIR, DESKTOP_CMD_EXEC_SETTINGS_FILE, NULL);
 	fileExists = g_key_file_load_from_file (keyFile, filename, G_KEY_FILE_KEEP_COMMENTS, NULL);
 	
-// 	if (fileExists) {
-// 	}
+	if (!fileExists) {
+		g_warning("Keyfile not found ..");
+	}
 
 	if(newAll)
 	{
@@ -603,7 +604,7 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 	if(self->priv->widgetID == NULL)
 	{
 		g_warning("Widget instance unknown... aborting");
-		return TRUE;
+		return FALSE;
 	}
 
 	if(self->priv->updNeworkPolicy == NETWORK__ONLY_CONNECTED && self->priv->isConnected == FALSE)
@@ -615,7 +616,6 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 	FILE *fp;
 	gchar line[2048];
 	size_t l;//AP
-	gchar *result;
 	size_t exval;
 	
 	gboolean found = FALSE;
@@ -638,7 +638,7 @@ gboolean desktop_cmd_exec_update_content (DesktopCmdExec *self)
 		
 		/* AP; No!No!No!Yes!, thanks! */
 		//	while (fgets (line, sizeof line, fp)) {//Needed to change this "line-based" management for output //AP
-		if (l=fread (line, 1, sizeof line, fp)) {//to this "buffer-based" for multiline handling in widget //AP
+		if ((l=fread (line, 1, sizeof line, fp))) {//to this "buffer-based" for multiline handling in widget //AP
 			line[l-1]='\000';//AP
 			
 			gtk_label_set_text (GTK_LABEL (self->priv->cmdResult_lb), line);//AP
@@ -801,7 +801,7 @@ static void desktop_cmd_exec_init (DesktopCmdExec *self)
 
 	self->priv->connection = con_ic_connection_new ();
 	g_signal_connect (self->priv->connection, "connection-event", G_CALLBACK (desktop_cmd_exec_connection_event), self);
-	g_object_set (self->priv->connection, "automatic-connection-events", TRUE);
+	g_object_set (self->priv->connection, "automatic-connection-events", TRUE, NULL);
 	self->priv->isConnected = FALSE;
 
 	self->priv->cmdResult_lb = NULL;
@@ -1084,7 +1084,9 @@ void desktop_cmd_exec_settings (HDHomePluginItem *hitem, DesktopCmdExec *self)
 
 		if(setDialogReturn == NON_GTK_RESPONSE_GET_CMDS)
 		{
-			system("dbus-send --system --type=method_call --dest='com.nokia.osso_browser' /com/nokia/osso_browser/request com.nokia.osso_browser.open_new_window string:'http://wiki.maemo.org/Desktop_Command_Execution_Widget_scripts'");
+			int ret = system("xdg-open https://wiki.maemo.org/Desktop_Command_Execution_Widget_scripts");
+			if (ret)
+				g_warning("Could not open scripts wiki ..");
 			desktop_cmd_exec_update_content (self);
 			settingsRunning = 0;
 		}
@@ -1178,7 +1180,6 @@ void desktop_cmd_exec_edit_add_dialog ( DesktopCmdExec *self, gboolean new, gint
 
 	gtk_widget_show_all (dialog);
 	int dialogRunResponse = gtk_dialog_run (GTK_DIALOG (dialog));
-	int i=0;
 	switch(dialogRunResponse)
 	{
 		case GTK_RESPONSE_ACCEPT:

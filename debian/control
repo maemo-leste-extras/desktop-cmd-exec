@@ -7,7 +7,7 @@ Section: user/desktop
 
 Package: desktop-cmd-exec
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, xdg-utils
 Description: Results of custom commands in your desktop.
  Presents the updated result of a custom shell command
  in your desktop. Very useful if used with lshal, awk, wget.

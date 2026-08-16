@@ -1,3 +1,9 @@
+desktop-cmd-exec (1.22) unstable; urgency=low
+
+  * fix all remaining compiler errors
+
+ -- Sicelo A. Mhlongo <absicsz@gmail.com>  Sun, 16 Aug 2026 19:47:18 +0200
+
 desktop-cmd-exec (1.21) unstable; urgency=low
 
   * fixing compilation error for Excalibur
